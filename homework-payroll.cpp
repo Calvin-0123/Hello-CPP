@@ -71,7 +71,7 @@ int main(int argc, char* argv[]) {
 
 //output
 
-  cout << "Welcome to your payroll calculator!" << endl;
+  cout << "Hello staff ~" << ID << "~ Welcome to your payroll calculator!" << endl;
   cout << "Your total gross pay is: " << Total << endl;
   cout << "Your tax amount is: " << Tax << endl;
   cout << "Your Total net pay is: " << Net << endl;

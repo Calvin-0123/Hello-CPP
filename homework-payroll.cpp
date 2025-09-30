@@ -79,3 +79,65 @@ int main(int argc, char* argv[]) {
 
   return 0;
 }
+
+// Function implementations (if any)
+
+
+// ------------- DESIGN -------------
+/* 
+Program Name: Payroll Calculator
+
+Program Description: This program can help people to calculate their salary.
+
+Design:
+A. INPUT
+Define the input variables including name data type. 
+
+- ID                : int
+- Hours             : float
+- Hourly Rate       : float
+- Withholding Rate  : int
+
+B. OUTPUT
+Define the output variables including data types. 
+
+- Welcome
+- Total Gross Pay : float
+- Tax Amount      : float
+- Net Pay         : float
+- Bye
+
+C. CALCULATIONS
+Describe calculations used by algorithms in step D.  
+List all formulas. 
+If there are no calculations needed, state there are no calculations.
+
+- Salary per hour * hours worked = Total gross pay;
+- Total gross pay * tax rate = Tax amount
+- Total gross pay - tax = Net pay
+
+D. LOGIC and ALGORITHMS
+Design the logic of your program using pseudocode or flowcharts. 
+Use conditionals, loops, functions or array constructs.
+List the steps in transforming inputs into outputs. 
+https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
+
+- Calculating user's input and output to display
+
+SAMPLE RUNS
+
+- Enter your ID number: 12345
+- Enter your working hours: 40
+- Enter your salary per hour: 18.5
+- Enter federal withholding rate: 10
+- Hello staff ~12345~ Welcome to your payroll calculator!
+- Your total gross pay is: 740
+- Your tax amount is: 74
+- Your Total net pay is: 666
+- Thanks for using this program!
+ 
+Normal program termination. Exit status: 0
+
+Copy from assignment document.
+
+*/

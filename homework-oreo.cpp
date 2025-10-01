@@ -21,7 +21,8 @@
 // ------------- DESIGN DOCUMENT -------------
 // A. INPUT ✅: Cookies eaten
 // B. OUTPUT ✅: Servings and Calories eaten
-// C. CALCULATIONS ✅: numbers of servings eaten, calories consumed
+// C. CALCULATIONS ✅: Servings = static_cast<double>(Cookies_Eaten) / Cookies_Per_Serving;
+//                     Calories = Servings * Calories_Per_Serving;
 // D. LOGIC and ALGORITHMS ✅:Read the numbers of cookies eaten and calculate,
 //                           then cout to display.
 //    (Optional) flow chart link or file name: 
@@ -104,14 +105,27 @@ Describe calculations used by algorithms in step D.
 List all formulas. 
 If there are no calculations needed, state there are no calculations.
 
+- Servings = static_cast<double>(Cookies_Eaten) / Cookies_Per_Serving;
+  Calories = Servings * Calories_Per_Serving;
+
 D. LOGIC and ALGORITHMS
 Design the logic of your program using pseudocode or flowcharts. 
 Use conditionals, loops, functions or array constructs.
 List the steps in transforming inputs into outputs. 
 https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
 
+- Read the numbers of cookies eaten and calculate,then cout to display.
 
 SAMPLE RUNS
 Copy from assignment document.
+
+- Welcome to the calories calculator
+- Enter the amout of oreos eaten: 12
+- 12 Oreos equals 2.4 Servings!
+- You consumed 384.0 Calories!
+- Keep eating Oreos!
+- Thanks for using the calories calculator!
+ 
+Normal program termination. Exit status: 0
 
 */

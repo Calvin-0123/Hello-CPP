@@ -20,7 +20,7 @@
 
 // ------------- DESIGN DOCUMENT -------------
 // A. INPUT ✅: Cookies eaten
-// B. OUTPUT ✅:servings and calories eaten
+// B. OUTPUT ✅: Servings and Calories eaten
 // C. CALCULATIONS ✅: numbers of servings eaten, calories consumed
 // D. LOGIC and ALGORITHMS ✅:Read the numbers of cookies eaten and calculate,
 //                           then cout to display.
@@ -34,6 +34,7 @@
 
 // ------------- CODE -------------
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -43,7 +44,37 @@ using namespace std;
 // Main function
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main(int argc, char* argv[]) {
-  
+
+// Constants
+
+  const int Cookies_Per_Serving = 5;
+  const int Calories_Per_Serving = 160;
+
+// Variables
+  int Cookies_Eaten = 0;
+  double Servings = 0.0;
+  double Calories = 0.0;
+
+// Welcome
+  cout << "Welcome to the calories calculator" << endl;
+
+// Input
+
+  cout << "Enter the amout of oreos eaten: ";
+  cin >> Cookies_Eaten;
+
+// Calculations
+
+  Servings = static_cast<double>(Cookies_Eaten) / Cookies_Per_Serving;
+  Calories = Servings * Calories_Per_Serving;
+
+// Output
+
+  cout << fixed << showpoint << setprecision(1);
+  cout << Cookies_Eaten << " Oreos equals " << Servings << " Servings!" << endl;
+  cout << "You consumed " << Calories << " Calories!" << endl;
+  cout << "Keep eating Oreos!" << endl;
+  cout << "Thanks for using the calories calculator!" << endl;
   return 0;
 }
 
@@ -52,16 +83,21 @@ int main(int argc, char* argv[]) {
 
 // ------------- DESIGN -------------
 /* 
-Program Name:
+Program Name: Calories calculator
 
-Program Description:
+Program Description: It can calculate how many servings and how much-
+                    -calories you consumed.
 
 Design:
 A. INPUT
 Define the input variables including name data type. 
 
+Cookies eaten int = 0
+
 B. OUTPUT
 Define the output variables including data types. 
+
+Servings and Calories eaten double = 0.0
 
 C. CALCULATIONS
 Describe calculations used by algorithms in step D.  

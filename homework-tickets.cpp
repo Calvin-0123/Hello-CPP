@@ -33,7 +33,6 @@
 
 // ------------- CODE -------------
 #include <iostream>
-#include <string>
 #include <iomanip>
 #include <cctype>
 
@@ -86,7 +85,9 @@ int main() {
     bikes = 0;
     cout << "How many adults you have?" << endl;
     cin >> ad;
-    if (ad > 0) {ad -=1};
+    if (ad > 0) {
+      ad -=1;
+    }
     cout << "How many seniors you have?" << endl;
     cin >> sen;
     cout << "How many youths you have?" << endl;
@@ -109,14 +110,14 @@ int main() {
   if (total < 100){
     hun = 100 - total;
     cout << endl;
-    cout << fixed << showpoint << setpercision(2);
+    cout << fixed << showpoint << setprecision(2);
     cout << "Your total charges will be " << total << endl;
     cout << endl;
     cout << "If you spend " << hun << " more, you will get a free adult ticket!" << endl;
     cout << endl;
     cout << "Thank you for using Washington State Ferries Fare Calculator!";
   }
-  else if (total > 100){
+  else if (total >= 100){
     cout << "You total charges will be " << total << endl;
     cout << "Thank you for using Washington State Ferries Fare Calculator!";
   }

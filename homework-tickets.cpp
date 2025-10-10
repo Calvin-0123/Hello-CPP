@@ -144,11 +144,12 @@ int main() {
     return 0;
   } 
 
+    cout << fixed << showpoint << setprecision(2);
+
   total =  v_ad_p * v_ad + ad_p * ad + sen_p * sen + you_p * you + bikes_p * bikes;
   if (total < 100){
     hun = 100 - total;
     cout << endl;
-    cout << fixed << showpoint << setprecision(2);
     cout << "Your total charges will be $" << total << endl;
     cout << endl;
     cout << "If you spend $" << hun << " more, you will get a free adult ticket!" << endl;
@@ -156,7 +157,6 @@ int main() {
     cout << "Thank you for using Washington State Ferries Fare Calculator!" << endl;
   }
   else if (total >= 100){
-    cout << fixed << showpoint << setprecision(2);
     cout << "Your total charges will be $" << total << endl;
     cout << "                      ****                 ******************" << endl;
     cout << "Your purchase is over $100, you will get a free adult ticket!" << endl;

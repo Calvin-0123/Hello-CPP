@@ -171,30 +171,62 @@ int main() {
 
 // ------------- DESIGN -------------
 /* 
-Program Name:
+Program Name: Ferry tickets calculator
 
-Program Description:
+Program Description: It will calculator your tickets price.
 
 Design:
 A. INPUT
 Define the input variables including name data type. 
+  if riding a vehicle on the ferry; numbers of adults, seniors, youths, bikes.
+
 
 B. OUTPUT
 Define the output variables including data types. 
+  Welcome and bye. Total charges. If spend more...; 
+
 
 C. CALCULATIONS
 Describe calculations used by algorithms in step D.  
 List all formulas. 
 If there are no calculations needed, state there are no calculations.
+  Total charges. 100 - total charges. number of people, bikes.
+
 
 D. LOGIC and ALGORITHMS
 Design the logic of your program using pseudocode or flowcharts. 
 Use conditionals, loops, functions or array constructs.
 List the steps in transforming inputs into outputs. 
 https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
+  calculate people, total price, and bikes.
 
 
 SAMPLE RUNS
 Copy from assignment document.
+  Welcome to your tickets calculator! Using Y/N to answer questions!
+
+  Fare Description
+  --------------------------------------------    ------
+  Vehicle Under 14' (less than 168") & Driver    $57.90
+  Adult (age 19 - 64)                             $14.95
+  Senior (age 65 & over) / Disability             $7.40
+  Youth (age 6 - 18)                              $5.55
+  Bicycle Surcharge (included with Vehicle)       $4.00
+  --------------------------------------------    ------
+  Did you ride a vehicle?
+  n
+  How many adults you have?
+  18
+  How many seniors you have?
+  2
+  How many youths you have?
+  2
+  How many bikes you have?
+
+  2
+  Uh oh!! Too many people in your group. Split into 2 groups and try again!
+  Thank you for using Washington State Ferries Fare Calculator!
+  
+  Normal program termination. Exit status: 0
 
 */

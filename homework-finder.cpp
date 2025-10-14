@@ -48,8 +48,13 @@ using namespace std;
 // Main function
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
-  string phrase1;
+
+// Set string 
+
+    string phrase1;  
   string phrase2;
+
+// Get all the inputs into strings.
 
   cout << "Welcome to the finder." << endl;
   cout << "Please enter your first phrase: ";
@@ -59,12 +64,16 @@ int main() {
   getline(cin, phrase2);
   cout << "You entered: " << phrase2 << endl;
 
+// Check if same. Else find the one in another one.
+
   if (phrase1 == phrase2){
     cout << "They are same.";
   }
   else {
     size_t pos12 = phrase2.find(phrase1);
     size_t pos21 = phrase1.find(phrase2);
+
+// If no error, cout "1 is found in 2". And cout the input after the found thing.
 
     if (pos12 != string::npos){
 

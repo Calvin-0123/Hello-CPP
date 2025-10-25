@@ -47,9 +47,21 @@ using namespace std;
 int main() {
 
     const int num_players = 3;
-
+// If all same
     string name1, name2, name3;
     int rock1, rock2, rock3;
+// If two same
+    int c; // first
+    string name;
+    int d; // second
+    string namee;
+    int e; // third
+    string nameee;
+// If different
+    int f; // second
+    int g; // first
+
+    double ave = (rock1 + rock2 + rock3) / num_players;
 
     cout << "Welcome!" << endl;
 // Cin names and numbers.
@@ -82,10 +94,55 @@ int main() {
 // If they are same.
     if (rock1 == rock2 && rock2 == rock3) {
         cout << "It is a three-way tie!";
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
+    }
+    
+// If they got two same. See which ones are same and compare to another.
+    if (rock1 == rock2){
+        if (rock2 > rock3){
+            cout << name1 << " and " << name2 << " are same!" << endl;
+            f = rock3;
+            cout << f << " will be the second!" << endl;
+        }
+        else {g = rock3;
+             cout << g << " got the first!" << endl;
+             cout << rock1 << " and " << rock2 << " are same!" << endl;
+        }
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
+    }
+    else if (rock2 == rock3){
+        if (rock2 > rock1){
+            cout << name2 << " and " << name3 << " are same!" << endl;
+            f = rock1;
+            cout << f << " will be the second!" << endl;
+        }
+        else {g = rock1;
+             cout << g << " got the first!" << endl;
+             cout << rock2 << " and " << rock3 << " are same!" << endl;
+        }
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
+    }
+    else if (rock1 == rock3){
+        if (rock1 > rock2){
+            cout << name1 << " and " << name3 << " are same!" << endl;
+            f = rock2;
+            cout << f << " will be the second!" << endl;
+        }
+        else {g = rock2;
+             cout << g << " got the first!" << endl;
+             cout << rock1 << " and " << rock3 << " are same!" << endl;
+        }
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
     }
 // If they are all different. See which is the biggest number.
-    int c;
-    string name;
 
     if (rock1 > rock2) {
         c = rock1;
@@ -99,11 +156,6 @@ int main() {
         name = name3;
     }
 // If they are all different. See which ones are second and third.
-    int d;
-    string namee;
-    int e;
-    string nameee;
-
     if (c == rock1) {
         if (rock2 > rock3) {
             d = rock2;  namee = name2;
@@ -112,6 +164,10 @@ int main() {
             d = rock3;  namee = name3;
             e = rock2;  nameee = name2;
         }
+        cout << c << " got first! " << d << " got second! " << e << "got third!" << endl;
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
     }
     else if (c == rock2) {
         if (rock1 > rock3) {
@@ -121,6 +177,10 @@ int main() {
             d = rock3;  namee = name3;
             e = rock1;  nameee = name1;
         }
+        cout << c << " got first! " << d << " got second! " << e << "got third!" << endl;
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
     }
     else if (c == rock3) {
         if (rock1 > rock2) {
@@ -130,41 +190,12 @@ int main() {
             d = rock2;  namee = name2;
             e = rock1;  nameee = name1;
         }
+        cout << c << " got first! " << d << " got second! " << e << "got third!" << endl;
+        cout << fixed << setprecision(2);
+        cout << "The average is " << ave << endl;
+        return 0;
     }
 
-    int f;
-    int e;
-// If they got two same. See which ones are same and compare to another.
-    if (rock1 == rock2){
-        if (rock2 > rock3){
-            cout << name1 << " and " << name2 << " are same!" << endl;
-            f = rock3;
-            cout << f << " will be the third!" << endl;
-        }
-        e = rock3;
-        cout << e << " got the first!" << endl;
-        cout << rock1 << " and " << rock2 << " are same!" << endl;
-    }
-    else if (rock2 == rock3){
-        if (rock2 > rock1){
-            cout << name2 << " and " << name3 << " are same!" << endl;
-            f = rock1;
-            cout << f << " will be the third!" << endl;
-        }
-        e = rock1;
-        cout << e << " got the first!" << endl;
-        cout << rock2 << " and " << rock3 << " are same!" << endl;
-    }
-    else if (rock1 == rock3){
-        if (rock1 > rock2){
-            cout << name1 << " and " << name3 << " are same!" << endl;
-            f = rock2;
-            cout << f << " will be the third!" << endl;
-        }
-        e = rock2;
-        cout << e << " got the first!" << endl;
-        cout << rock1 << " and " << rock3 << " are same!" << endl;
-    }
 
 
 

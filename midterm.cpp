@@ -61,8 +61,6 @@ int main() {
     int f; // second
     int g; // first
 
-    double ave = (rock1 + rock2 + rock3) / num_players;
-
     cout << "Welcome!" << endl;
 // Cin names and numbers.
     cout << "Enter player 1 name: " << endl;
@@ -91,6 +89,10 @@ int main() {
         rock3 = 0;
         cout << "Not a positive number, set for 0." << endl;
     }
+
+    cout << fixed << setprecision(2);
+    double ave = (rock1 + rock2 + rock3) / static_cast<double>(num_players);
+
 // If they are same.
     if (rock1 == rock2 && rock2 == rock3) {
         cout << "It is a three-way tie!";
@@ -164,7 +166,7 @@ int main() {
             d = rock3;  namee = name3;
             e = rock2;  nameee = name2;
         }
-        cout << c << " got first! " << d << " got second! " << e << "got third!" << endl;
+        cout << c << " got first! " << d << " got second! " << e << " got third!" << endl;
         cout << fixed << setprecision(2);
         cout << "The average is " << ave << endl;
         return 0;
@@ -177,7 +179,7 @@ int main() {
             d = rock3;  namee = name3;
             e = rock1;  nameee = name1;
         }
-        cout << c << " got first! " << d << " got second! " << e << "got third!" << endl;
+        cout << c << " got first! " << d << " got second! " << e << " got third!" << endl;
         cout << fixed << setprecision(2);
         cout << "The average is " << ave << endl;
         return 0;
@@ -190,7 +192,7 @@ int main() {
             d = rock2;  namee = name2;
             e = rock1;  nameee = name1;
         }
-        cout << c << " got first! " << d << " got second! " << e << "got third!" << endl;
+        cout << c << " got first! " << d << " got second! " << e << " got third!" << endl;
         cout << fixed << setprecision(2);
         cout << "The average is " << ave << endl;
         return 0;

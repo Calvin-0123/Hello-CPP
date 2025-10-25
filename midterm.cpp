@@ -46,6 +46,8 @@ using namespace std;
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
 
+    const int num_players = 3;
+
     string name1, name2, name3;
     int rock1, rock2, rock3;
 
@@ -59,7 +61,7 @@ int main() {
         rock1 = 0;
         cout << "Not a positive number, set for 0." << endl;
     }
-
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Enter player 2 name: " << endl;
         getline(cin, name2);
     cout << "How many rocks did " << name2 << " collect?" << endl;
@@ -68,7 +70,7 @@ int main() {
         rock2 = 0;
         cout << "Not a positive number, set for 0." << endl;
     }
-
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Enter player 3 name: " << endl;
         getline(cin, name3);
     cout << "How many rocks did " << name3 << " collect?" << endl;
@@ -77,6 +79,60 @@ int main() {
         rock3 = 0;
         cout << "Not a positive number, set for 0." << endl;
     }
+
+    if (rock1 == rock2 == rock3) {
+        cout >> "It is a three-way tie!";
+    }
+
+    int c;
+    string name;
+
+    if (rock1 > rock2) {
+        c = rock1;
+        name = name1;
+    }
+    else {c = rock2;
+         name = name2;
+    }
+    if (rock3 > c) {
+        c = rock3;
+        name = name3;
+    }
+    
+    int d;
+    string namee;
+    int e;
+    string nameee;
+
+    if (c == rock1) {
+        if (rock2 > rock3) {
+            d = rock2;  namee = name2;
+            e = rock3;  nameee = name3;
+        } else {
+            d = rock3;  namee = name3;
+            e = rock2;  nameee = name2;
+        }
+    }
+    else if (c == rock2) {
+        if (rock1 > rock3) {
+            d = rock1;  namee = name1;
+            e = rock3;  nameee = name3;
+        } else {
+            d = rock3;  namee = name3;
+            e = rock1;  nameee = name1;
+        }
+    }
+    else if (c == rock3) {
+        if (rock1 > rock2) {
+            d = rock1;  namee = name1;
+            e = rock2;  nameee = name2;
+        } else {
+            d = rock2;  namee = name2;
+            e = rock1;  nameee = name1;
+        }
+    }
+    
+
 
 
 

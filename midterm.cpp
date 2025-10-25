@@ -52,7 +52,7 @@ int main() {
     int rock1, rock2, rock3;
 
     cout << "Welcome!" << endl;
-
+// Cin names and numbers.
     cout << "Enter player 1 name: " << endl;
         getline(cin, name1);
     cout << "How many rocks did " << name1 << " collect?" << endl;
@@ -79,11 +79,11 @@ int main() {
         rock3 = 0;
         cout << "Not a positive number, set for 0." << endl;
     }
-
-    if (rock1 == rock2 == rock3) {
-        cout >> "It is a three-way tie!";
+// If they are same.
+    if (rock1 == rock2 && rock2 == rock3) {
+        cout << "It is a three-way tie!";
     }
-
+// If they are all different. See which is the biggest number.
     int c;
     string name;
 
@@ -98,7 +98,7 @@ int main() {
         c = rock3;
         name = name3;
     }
-    
+// If they are all different. See which ones are second and third.
     int d;
     string namee;
     int e;
@@ -131,8 +131,40 @@ int main() {
             e = rock1;  nameee = name1;
         }
     }
-    
 
+    int f;
+    int e;
+// If they got two same. See which ones are same and compare to another.
+    if (rock1 == rock2){
+        if (rock2 > rock3){
+            cout << name1 << " and " << name2 << " are same!" << endl;
+            f = rock3;
+            cout << f << " will be the third!" << endl;
+        }
+        e = rock3;
+        cout << e << " got the first!" << endl;
+        cout << rock1 << " and " << rock2 << " are same!" << endl;
+    }
+    else if (rock2 == rock3){
+        if (rock2 > rock1){
+            cout << name2 << " and " << name3 << " are same!" << endl;
+            f = rock1;
+            cout << f << " will be the third!" << endl;
+        }
+        e = rock1;
+        cout << e << " got the first!" << endl;
+        cout << rock2 << " and " << rock3 << " are same!" << endl;
+    }
+    else if (rock1 == rock3){
+        if (rock1 > rock2){
+            cout << name1 << " and " << name3 << " are same!" << endl;
+            f = rock2;
+            cout << f << " will be the third!" << endl;
+        }
+        e = rock2;
+        cout << e << " got the first!" << endl;
+        cout << rock1 << " and " << rock3 << " are same!" << endl;
+    }
 
 
 

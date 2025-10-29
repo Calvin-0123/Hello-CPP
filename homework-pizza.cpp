@@ -44,6 +44,7 @@
 
 // ------------- CODE -------------
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 
@@ -53,24 +54,62 @@ using namespace std;
 // Main function
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
-    
-    double taxrate = 1.07;
+    double pizzasCost;
+    int numPizzas;
+    int numPeople;
+    int totalPizzas;
+
+    int entries = 0;
+    double pizzaCost;
+    double avePizzasPerEntries;
+    int maxPeople = 0;
+    double maxCost = 0.0;
+
+    double taxrate = 0.07;
     double deliveryfee = 0.20;
-    const int pizzaslices = 8;
+    const int pizzaSlices = 8;
     char answer;
 
     cout << "Welcome to my Pizza Party Statistics program!" << endl;
     do {
-        cout << "Enter the number of people, average number of slices per person, "
-        "and the cost of a pizza separated by a space: " << endl;
-        
+        cout << "Enter the number of pizzas, total of people, "
+                "and the total cost of pizzas separated by a space: " << endl;
+        cin >> numPizzas >> numPeople >> pizzaCost;
+
+        double tax = pizzaCost * taxrate;
+        double delivery = (pizzaCost + tax) * deliveryfee;
+        double total = pizzaCost + tax + delivery;
+
+        cout << "Number of pizzas: " << numPizzas << endl;
+        cout << "Cost of pizzas: " << pizzaCost << endl;
+        cout << "Tax: " << tax << endl;
+        cout << "Delivery: " << delivery << endl;
+        cout << "Total cost: " << total << endl;
+
+        cout << "Do you want to enter more? (y/n): " << endl;
+        cin >> answer;
+        answer = tolower(answer);
+
+        entries += 1;
+        totalPizzas += numPizzas;
+        avePizzasPerEntries = totalPizzas / entries;
+
+        if (numPeople > maxPeople) {
+            maxPeople = numPeople;
+        }
+        if (total > maxCost) {
+            maxCost = total;
+        }
     }
-    cin >> 
+        while (answer == 'y');
 
+        cout << "Number of entries: " << entries << endl;
+        cout << "Total number of pizzas: " << totalPizzas << endl;
+        cout << "Average number of pizzas: " << avePizzasPerEntries << endl;
+        cout << "Maximum number of people: " << maxPeople << endl;
+        cout << "Maximum cost of pizzas: " << maxCost;
 
-
-
-
+        cout << "Thank you for using my program!" << endl;
 
     return 0;
 }

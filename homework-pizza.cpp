@@ -22,7 +22,7 @@
 // A. INPUT ✅: number of people, yes or no
 // B. OUTPUT ✅: welcome, number of pizzas, cost, tax, delivery, total
 // C. CALCULATIONS ✅: cost, tax, delivery, total
-// D. LOGIC and ALGORITHMS ✅: ask number of people and calculating.
+// D. LOGIC and ALGORITHMS ✅: ask numbers and calculating.
 //    (Optional) flow chart link or file name: 
 
 
@@ -121,9 +121,9 @@ int main() {
 
 // ------------- DESIGN -------------
 /* 
-Program Name:
+Program Name:Pizza Party Statistics program
 
-Program Description:
+Program Description:ask numbers and calculating.
 
 Design:
 A. INPUT
@@ -142,9 +142,18 @@ Design the logic of your program using pseudocode or flowcharts.
 Use conditionals, loops, functions or array constructs.
 List the steps in transforming inputs into outputs. 
 https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
-    LOGIC and ALGORITHMS ✅: ask number of people and calculating.
+    LOGIC and ALGORITHMS ✅: ask numbers and calculating.
 
 SAMPLE RUNS
 Copy from assignment document.
-
+    Welcome to my Pizza Party Statistics program!
+    Enter the number of pizzas, total of people, and the total cost of pizzas separated by a space: 
+    5 10 50
+    Number of pizzas: 5
+    Cost of pizzas: 50.00
+    Tax: 3.50
+    Delivery: 10.70
+    Total cost: 64.20
+    Do you want to enter more? (y/n): 
+ 
 */

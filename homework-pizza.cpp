@@ -45,6 +45,7 @@
 // ------------- CODE -------------
 #include <iostream>
 #include <cctype>
+#include <iomanip>
 
 using namespace std;
 
@@ -54,10 +55,9 @@ using namespace std;
 // Main function
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
-    double pizzasCost;
     int numPizzas;
     int numPeople;
-    int totalPizzas;
+    int totalPizzas = 0;
 
     int entries = 0;
     double pizzaCost;
@@ -65,8 +65,8 @@ int main() {
     int maxPeople = 0;
     double maxCost = 0.0;
 
-    double taxrate = 0.07;
-    double deliveryfee = 0.20;
+    const double taxrate = 0.07;
+    const double deliveryfee = 0.20;
     const int pizzaSlices = 8;
     char answer;
 
@@ -80,6 +80,7 @@ int main() {
         double delivery = (pizzaCost + tax) * deliveryfee;
         double total = pizzaCost + tax + delivery;
 
+        cout << fixed << setprecision(2);
         cout << "Number of pizzas: " << numPizzas << endl;
         cout << "Cost of pizzas: " << pizzaCost << endl;
         cout << "Tax: " << tax << endl;
@@ -92,7 +93,7 @@ int main() {
 
         entries += 1;
         totalPizzas += numPizzas;
-        avePizzasPerEntries = totalPizzas / entries;
+        avePizzasPerEntries = static_cast<double>(totalPizzas) / entries;
 
         if (numPeople > maxPeople) {
             maxPeople = numPeople;
@@ -103,9 +104,10 @@ int main() {
     }
         while (answer == 'y');
 
+        cout << fixed << setprecision(2);
         cout << "Number of entries: " << entries << endl;
         cout << "Total number of pizzas: " << totalPizzas << endl;
-        cout << "Average number of pizzas: " << avePizzasPerEntries << endl;
+        cout << "Average number of pizzas: " << fixed << setprecision(1) << avePizzasPerEntries << endl;
         cout << "Maximum number of people: " << maxPeople << endl;
         cout << "Maximum cost of pizzas: " << maxCost;
 

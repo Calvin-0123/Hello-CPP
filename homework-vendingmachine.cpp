@@ -43,7 +43,8 @@ using namespace std;
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
 
-  const int cost = 25;    // Price for Each
+  const int c = 25;       // Price for Coffee
+  const int t = 25;       // Price for Tea
   int coins = 0;          // Inserted for now
   int balance = 0;        // Total balance left
   char choice;            // Letter answered
@@ -72,7 +73,35 @@ int main() {
   } while ( coins != 0 );
 
 // Choose items
-  cout 
+  cout << "Please pick an option ($0.25 each): C/c: Coffee, T/t: Tea, Q/q: Quit~\n";
+  cin >> choice;
+  choice = tolower(choice);
+
+  while (choice != 'c' && choice != 't' && choice != 'q') {
+    cout << "Invalid option!" << endl;
+    cout << "Please try again!" << endl;
+    cout << "Please pick an option ($0.25 each): C/c: Coffee, T/t: Tea, Q/q: Quit\n";
+    cin >> choice;
+    choice = tolower(choice);
+  }                                                                         
+
+  switch (choice) {
+    case 'c':
+      cout << "Your choice is Coffee\n";
+      break;
+    case 't':
+      cout << "Your choice is Tea\n";
+      break;
+    case 'q':
+      cout << "Your choice is quit\n";
+      break;
+    default:
+      cout << "Invalid choice!\n";
+      break;
+  }
+
+
+
 
 
 

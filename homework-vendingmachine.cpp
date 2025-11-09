@@ -55,22 +55,24 @@ int main() {
 
 // Insert coins
   do {
+
     cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
     cin >> coins;
-    while ((!cin) || (coins!= 0 || coins != 5 || coins != 10 || coins != 25)){
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    while ((!cin) || (coins!= 0 && coins != 5 && coins != 10 && coins != 25)){ //check if valid
+      cin.clear();                                                             //clear the wrong status
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');                     //clear what just cin until the enter
       cout << "Invalid coin!";
       cout << "Please try again!";
       cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
       cin >> coins;
-    }
+    }                                                                          // exit the loop
     balance += coins;
     cout << "Your balance for now is: " << balance << endl;
-    
 
+  } while ( coins != 0 );
 
-  } while ( coins != 0 )
+// Choose items
+  cout 
 
 
 

@@ -33,6 +33,9 @@
 
 // ------------- CODE -------------
 #include <iostream>
+#include <limits>
+#include <iomanip>
+#include <cctype>
 
 using namespace std;
 
@@ -68,9 +71,9 @@ int main() {
       cin >> coins;
     }                                                                          // exit the loop
     balance += coins;
-    cout << "Your balance for now is: " << balance << endl;
-
+    cout << "Your balance for now is: " << fixed << setprecision(2) << (balance / 100.0) << endl;
   } while ( coins != 0 );
+  cout << "\nYour balance is $" << fixed << setprecision(2) << (balance / 100.0) << "\n\n";
 
 // Choose items
   cout << "Please pick an option ($0.25 each): C/c: Coffee, T/t: Tea, Q/q: Quit~\n";

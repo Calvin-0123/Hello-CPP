@@ -53,6 +53,7 @@ int main() {
   char choice;            // Letter answered
   int quantity = 0;       // Number of items
   int total = 0;          // Total price
+  bool running = ture     // For exit the loop
 
 // Start
   cout << "Welcome to the vending machine!" << endl;
@@ -97,13 +98,40 @@ int main() {
       break;
     case 'q':
       cout << "Your choice is quit\n";
+      cout << "Your balance is $" << fixed << setprecision(2) << (balance / 100.0) << endl;
+      cout << "Thank you for using my vending machine!\n";
+      running = false; // ✅ 让循环结束
       break;
-    default:
+      default:
       cout << "Invalid choice!\n";
       break;
+  }                     //chioce == c
+  cout << "How many do you want?";
+  cin >> quantity;
+  total = (choice * quantity) / 100;
+
+  while (total > balance) {
+    do {
+      cout << "You do not have enough balance, please enter coins." << endl;
+      cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
+      cin >> coins;
+      while ((!cin) || (coins!= 0 && coins != 5 && coins != 10 && coins != 25)){ //check if valid
+        cin.clear();                                                             //clear the wrong status
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');                     //clear what just cin until the enter
+        cout << "Invalid coin!";
+        cout << "Please try again!";
+        cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
+        cin >> coins;
+      }                                                                          // exit the loop
+      balance += coins;
+      cout << "Your balance for now is: " << fixed << setprecision(2) << (balance / 100.0) << endl;
+    } while ( coins != 0 );
+    cout << "\nYour balance is $" << fixed << setprecision(2) << (balance / 100.0) << "\n\n";
   }
-
-
+  cout << "Your total will be: " << total << endl;
+  balance -= total;
+  cout << "Your balance is: " << balance << endl;
+  cout << "Thanks for using the vending machine.";
 
 
 

@@ -1,7 +1,7 @@
 // ------------- FILE HEADER -------------
-// Author ✅: Calvin Li
-// Assignment ✅:vending machine
-// Date ✅:11.7.2025
+// Author ✅: Calvin
+// Assignment ✅: Vending machine
+// Date ✅: 11.8.2025
 // Citations: sample 6
 
 
@@ -43,56 +43,38 @@ using namespace std;
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
 
-  int answer;
-  double balance;
-  char choice;
-  int quantity;
+  const int cost = 25;    // Price for Each
+  int coins = 0;          // Inserted for now
+  int balance = 0;        // Total balance left
+  char choice;            // Letter answered
+  int quantity = 0;       // Number of items
+  int total = 0;          // Total price
 
-//start
+// Start
   cout << "Welcome to the vending machine!" << endl;
 
-//insert money
-  do{
-    cout << "Enter coins - 5, 10, 25 only, 0 to stop." << endl;
-    cin >> answer;
-    if (answer != && answer != 0 && answer != 5 && answer != 10 && answer!= 25) {
-      cout << "Invalid coin!" << endl;
-      cout << "Try again" << endl;
-      return
-    }
-    balance += answer;
-
-  }
-  while (answer != 0)
-
-//print balance
-  cout << "Your balance is: " << balance << endl;
-
-//choose items
+// Insert coins
   do {
-    cout << "Please pick an option" << endl;
-    ch = tolower(ch);
-    while (ch != 'c' && ch != 't' && ch != 'q')      
-      cout << "Invalid option!" << endl;
-      cout << "Try again." << endl;
-      return
+    cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
+    cin >> coins;
+    while ((!cin) || (coins!= 0 || coins != 5 || coins != 10 || coins != 25)){
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cout << "Invalid coin!";
+      cout << "Please try again!";
+      cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
+      cin >> coins;
     }
-    if (choice == C || c) {
-      cout << "How many do you want?" << endl;
-      cin >> quantity;
-      balance -= quantity * 0.25;
-      cout << "Your total is: " << balance << endl;
-      }
-    else if (choice == T || t) {
-      cout << "How many do you want?" << endl;
-      cin >> quantity;
-      balance -= quantity * 0.25;
-      cout << "Your total is: " << balance << endl;
-      }
-    else {
-        cout << ""
-      }
-    } while (choice != Q && choice != q);
+    balance += coins;
+    cout << "Your balance for now is: " << balance << endl;
+    
+
+
+  } while ( coins != 0 )
+
+
+
+
 
 
 

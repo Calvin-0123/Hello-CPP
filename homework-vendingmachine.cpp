@@ -19,10 +19,10 @@
 
 
 // ------------- DESIGN DOCUMENT -------------
-// A. INPUT ✅: 
-// B. OUTPUT ✅:
-// C. CALCULATIONS ✅:
-// D. LOGIC and ALGORITHMS ✅:
+// A. INPUT ✅: coins, choice, quantity
+// B. OUTPUT ✅: Welcome, balance, choose, quantity, if enough, total, balance, thanks
+// C. CALCULATIONS ✅:balance += coins, total = unit_price * quantity, unit_price = (choice == 'c' ? c : t)
+// D. LOGIC and ALGORITHMS ✅: have notes in line
 //    (Optional) flow chart link or file name: 
 
 
@@ -188,30 +188,49 @@ int main() {
 
 // ------------- DESIGN -------------
 /* 
-Program Name:
+Program Name: vending machine
 
-Program Description:
+Program Description: vending machine
 
 Design:
 A. INPUT
 Define the input variables including name data type. 
+    coins, choice, quantity
 
 B. OUTPUT
 Define the output variables including data types. 
+    Welcome, balance, choose, quantity, if enough, total, balance, thanks
+
 
 C. CALCULATIONS
 Describe calculations used by algorithms in step D.  
 List all formulas. 
 If there are no calculations needed, state there are no calculations.
+    balance += coins, total = unit_price * quantity, unit_price = (choice == 'c' ? c : t)
+
 
 D. LOGIC and ALGORITHMS
 Design the logic of your program using pseudocode or flowcharts. 
 Use conditionals, loops, functions or array constructs.
 List the steps in transforming inputs into outputs. 
 https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
+    have notes in line
 
 
 SAMPLE RUNS
 Copy from assignment document.
+Welcome to the vending machine!
+Enter coins - 5, 10, 25 only, 0 to stop: 25
+Your balance for now is: $0.25
+Enter coins - 5, 10, 25 only, 0 to stop: 0
 
+Your balance is $0.25
+
+Please pick an option ($0.25 each): C/c: Coffee, T/t: Tea, Q/q: Quit~
+c
+Your choice is Coffee
+How many do you want? 1
+Your total will be: $0.25
+Your balance is: $0.00
+Thanks for using the vending machine.
 */

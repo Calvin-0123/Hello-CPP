@@ -67,8 +67,8 @@ int main() {
       while ((!cin) || (coins!= 0 && coins != 5 && coins != 10 && coins != 25)){ //check if valid
         cin.clear();                                                             //clear the wrong status
         cin.ignore(numeric_limits<streamsize>::max(), '\n');                     //clear what just cin until the enter
-        cout << "Invalid coin!";
-        cout << "Please try again!";
+        cout << "Invalid coin!\n";
+        cout << "Please try again!\n";
         cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
         cin >> coins;
       }                                                                          // exit the loop
@@ -85,8 +85,8 @@ int main() {
     choice = tolower(choice);
 
     while (choice != 'c' && choice != 't' && choice != 'q') {
-      cout << "Invalid option!" << endl;
-      cout << "Please try again!" << endl;
+      cout << "Invalid option!\n" << endl;
+      cout << "Please try again!\n" << endl;
       cout << "Please pick an option ($0.25 each): C/c: Coffee, T/t: Tea, Q/q: Quit\n";
       cin >> choice;
       choice = tolower(choice);
@@ -126,8 +126,8 @@ int main() {
           while ((!cin) || (coins!= 0 && coins != 5 && coins != 10 && coins != 25)){ //check if valid
             cin.clear();                                                             //clear the wrong status
             cin.ignore(numeric_limits<streamsize>::max(), '\n');                     //clear what just cin until the enter
-            cout << "Invalid coin!";
-            cout << "Please try again!";
+            cout << "Invalid coin!\n";
+            cout << "Please try again!\n";
             cout << "Enter coins - 5, 10, 25 only, 0 to stop: ";
             cin >> coins;
           }                                                                          // exit the loop
@@ -140,20 +140,19 @@ int main() {
         cout << "\nYour balance is $" << fixed << setprecision(2) << (balance / 100.0) << "\n\n";
         cout << "Please pick an option ($0.25 each): C/c: Coffee, T/t: Tea, Q/q: Quit\n";
         cin >> choice;
-        choice = static_cast<char>(tolower(choice));
+        choice = tolower(choice);
         while (choice != 'c' && choice != 't' && choice != 'q') {
           cout << "Invalid Option! Please choose a valid option!\n";
           cin >> choice;
-          choice = static_cast<char>(tolower(choice));
+          choice = tolower(choice);
         }
 
         if (choice == 'q') {
-          // 用户决定退出：优雅结束本轮购买与主循环
           cout << "Your choice is quit\n";
           cout << "Your balance is $" << fixed << setprecision(2) << (balance / 100.0) << endl;
           cout << "Thank you for using my vending machine!\n";
-          running = false;   // 让外层 while(running) 在下一轮判断时结束
-          total = 0;         // 让 while(total > balance) 条件变为 false，从而跳出这个“钱不够”循环
+          running = false;
+          total = 0;
         } 
         else {
           cout << "How many do you want? ";
@@ -165,11 +164,13 @@ int main() {
           total = (choice == 'c' ? c : t) * quantity;
         }
       }
-      cout << "Your total will be: $" << fixed << setprecision(2) << (total / 100.0) << endl;
-      balance -= total;
-      cout << "Your balance is: $" << fixed << setprecision(2) << (balance / 100.0) << endl;
-      cout << "Thanks for using the vending machine.";
-      running = false; // Stop the loop
+      if (running) {
+        cout << "Your total will be: $" << fixed << setprecision(2) << (total / 100.0) << endl;
+        balance -= total;
+        cout << "Your balance is: $" << fixed << setprecision(2) << (balance / 100.0) << endl;
+        cout << "Thanks for using the vending machine." << endl;
+        running = false; // Stop the loop
+      }
     }
   }
 

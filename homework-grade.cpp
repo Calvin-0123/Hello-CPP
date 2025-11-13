@@ -46,22 +46,28 @@ int main() {
     char grade;
     int qty_daily;
     float daily;
-    float homework;
+    float homework = 0;
     float midterm;
     float finalterm;
     float total;
+
+    welcome();
 // Calculate the average for homework grade.
     cout << "Enter the number of assignments (0 to 10): " << endl;
     cin >> qty_daily;
-    while((!cin) && (qty_daily < 0 && qty_daily > 10)) {
+    while((!cin) && (qty_daily < 0 || qty_daily > 10)) {
         cout << "Wrong input, please try again." << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');
         cin >> qty_daily;
     }
     for (int i = 0; i < qty_daily; i++) {
         cout << "What is your grade for the homework " << i + 1 << " ? \nYour answer should be 0-4: " << endl;
         cin >> daily;
-        while ((!cin) && (daily < 0 && daily >4)) {
+        while ((!cin) && (daily < 0 || daily >4)) {
             cout << "Wrong input, please try again!" << endl;
+            cin.clear();
+            cin.ignore(1000, '\n');
             cin >> daily;
         }
         homework += daily;
@@ -71,39 +77,41 @@ int main() {
 // Midterm grade
     cout << "What is your grade for midterm exam? \nPlease enter your grade(0-4): " << endl;
     cin >> midterm;
-    while((!cin) && (midterm < 0 && midterm > 4)) {
+    while((!cin) && (midterm < 0 || midterm > 4)) {
         cout << "Wrong input, please try again." << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');
         cin >> midterm;
     }
 
 //Finalterm grade
     cout << "What is your grade for finalterm exam? \nPlease enter your grade(0-4): " << endl;
     cin >> finalterm;
-    while((!cin) && (finalterm < 0 && finalterm > 4)) {
+    while((!cin) && (finalterm < 0 || finalterm > 4)) {
         cout << "Wrong input, please try again." << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');
         cin >> finalterm;
     }
 
 //total
     total = (homework * 0.6) + (midterm * 0.2) + (finalterm * 0.2);
     cout << "Your total score is: " << total << endl;
-    switch (total) {
-        case (total <= 4 && total >=3.3):
-            cout << "You got Grade A!";
-            break
-        case (total < 3.3 && total >= 2.8):
-            cout << "You got Grade B!"; 
-            break
-        case (total < 2.8 && total >= 2):
-            cout << "You got Grade C!";
-            break
-        case (total < 2 && total >= 1.2):
-            cout << "You got Grade D!";
-            break
-        case (total < 1.2 && total >= 0):
-            cout << "You got Grade F!";
-            break
+    if (total <= 4 && total >= 3.3) {
+        grade = 'A';
+    } else if (total < 3.3 && total >= 2.8) {
+        grade = 'B';
+    } else if (total < 2.8 && total >= 2.0) {
+        grade = 'C';
+    } else if (total < 2.0 && total >= 1.2) {
+        grade = 'D';
+    } else if (total < 1.2 && total >= 0) {
+        grade = 'F';
+    } else {
+        grade = 'F';
     }
+
+    cout << "You got Grade " << grade << "!" << endl;
 
 
     return 0;

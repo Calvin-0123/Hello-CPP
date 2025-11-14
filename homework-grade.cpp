@@ -19,9 +19,9 @@
 
 
 // ------------- DESIGN DOCUMENT -------------
-// A. INPUT ✅: 
-// B. OUTPUT ✅:
-// C. CALCULATIONS ✅:
+// A. INPUT ✅: int numAssigns, double assignment scores, double midterm, double finalExam
+// B. OUTPUT ✅: double finalScore, char letter
+// C. CALCULATIONS ✅: Assignment average, Final numeric score, Letter grade based on finalScore
 // D. LOGIC and ALGORITHMS ✅:
 //    (Optional) flow chart link or file name: 
 
@@ -33,94 +33,140 @@
 
 // ------------- CODE -------------
 #include <iostream>
+#include <iomanip>
+#include <string>
 
 using namespace std;
 
 // Function prototypes (if any)
 void welcome();
+int readInt(string prompt);
+double readScore(string prompt);
+double assignAverage(int numAssigns);
+double calcFinalScore(double assignAvg, double midterm, double finalExam);
+char calcLetterGrade(double finalScore);
+
+// Constants
+const double ASSIGN_WEIGHT = 0.6;
+const double MID_WEIGHT    = 0.2;
+const double FINAL_WEIGHT  = 0.2;
 
 // Main function
 // https://en.cppreference.com/w/cpp/language/main_function.html
 int main() {
 
-    char grade;
-    int qty_daily;
-    float daily;
-    float homework = 0;
-    float midterm;
-    float finalterm;
-    float total;
+    int numAssigns;
+    double assignAvg;
+    double midterm;
+    double finalExam;
+    double finalScore;
+    char letter;
 
     welcome();
-// Calculate the average for homework grade.
-    cout << "Enter the number of assignments (0 to 10): " << endl;
-    cin >> qty_daily;
-    while((!cin) && (qty_daily < 0 || qty_daily > 10)) {
-        cout << "Wrong input, please try again." << endl;
-        cin.clear();
-        cin.ignore(1000, '\n');
-        cin >> qty_daily;
-    }
-    for (int i = 0; i < qty_daily; i++) {
-        cout << "What is your grade for the homework " << i + 1 << " ? \nYour answer should be 0-4: " << endl;
-        cin >> daily;
-        while ((!cin) && (daily < 0 || daily >4)) {
-            cout << "Wrong input, please try again!" << endl;
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cin >> daily;
-        }
-        homework += daily;
-    }
-    homework /= qty_daily;
 
-// Midterm grade
-    cout << "What is your grade for midterm exam? \nPlease enter your grade(0-4): " << endl;
-    cin >> midterm;
-    while((!cin) && (midterm < 0 || midterm > 4)) {
-        cout << "Wrong input, please try again." << endl;
-        cin.clear();
-        cin.ignore(1000, '\n');
-        cin >> midterm;
-    }
+    numAssigns = readInt("Enter the number of assignments (0 to 10): ");
+    assignAvg = assignAverage(numAssigns);
 
-//Finalterm grade
-    cout << "What is your grade for finalterm exam? \nPlease enter your grade(0-4): " << endl;
-    cin >> finalterm;
-    while((!cin) && (finalterm < 0 || finalterm > 4)) {
-        cout << "Wrong input, please try again." << endl;
-        cin.clear();
-        cin.ignore(1000, '\n');
-        cin >> finalterm;
-    }
+    midterm   = readScore("Enter your midterm exam score: ");
+    finalExam = readScore("Enter your final exam score: ");
 
-//total
-    total = (homework * 0.6) + (midterm * 0.2) + (finalterm * 0.2);
-    cout << "Your total score is: " << total << endl;
-    if (total <= 4 && total >= 3.3) {
-        grade = 'A';
-    } else if (total < 3.3 && total >= 2.8) {
-        grade = 'B';
-    } else if (total < 2.8 && total >= 2.0) {
-        grade = 'C';
-    } else if (total < 2.0 && total >= 1.2) {
-        grade = 'D';
-    } else if (total < 1.2 && total >= 0) {
-        grade = 'F';
-    } else {
-        grade = 'F';
-    }
+    finalScore = calcFinalScore(assignAvg, midterm, finalExam);
+    letter = calcLetterGrade(finalScore);
 
-    cout << "You got Grade " << grade << "!" << endl;
-
+    cout << fixed << setprecision(1);
+    cout << "Your Final Numeric score is " << finalScore << endl;
+    cout << "Your Final Grade is " << letter << endl;
+    cout << "Thank you for using my Grade Calculator!" << endl;
 
     return 0;
 }
+
+// Function implementations
+
 void welcome() {
     cout << "Welcome to my Final Grade Calculator!" << endl;
     cout << "Please enter the following information and I will calculate your Final Numerical Grade and Letter Grade for you!" << endl;
     cout << "The number of assignments must be between 0 and 10." << endl;
     cout << "All scores entered must be between 0 and 4." << endl;
+}
+
+int readInt(string prompt) {
+    int value;
+    bool valid = false;
+
+    while (!valid) {
+        cout << prompt;
+        if (!(cin >> value)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Illegal Value! Please try again!!" << endl;
+        } else if (value < 0 || value > 10) {
+            cout << "Illegal Value! Please try again!!" << endl;
+        } else {
+            valid = true;
+        }
+    }
+
+    return value;
+}
+
+double readScore(string prompt) {
+    double score;
+    bool valid = false;
+
+    while (!valid) {
+        cout << prompt;
+        if (!(cin >> score)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Illegal Score! Please try again!" << endl;
+        } else if (score < 0 || score > 4) {
+            cout << "Illegal Score! Please try again!" << endl;
+        } else {
+            valid = true;
+        }
+    }
+
+    return score;
+}
+
+double assignAverage(int numAssigns) {
+    if (numAssigns == 0) {
+        return 0.0;
+    }
+
+    double sum = 0.0;
+    double score;
+
+    for (int i = 1; i <= numAssigns; i++) {
+        string prompt = "Enter score " + to_string(i) + ": ";
+        score = readScore(prompt);
+        sum += score;
+    }
+
+    return sum / numAssigns;
+}
+
+double calcFinalScore(double assignAvg, double midterm, double finalExam) {
+    double finalScore;
+    finalScore = assignAvg * ASSIGN_WEIGHT
+               + midterm   * MID_WEIGHT
+               + finalExam * FINAL_WEIGHT;
+    return finalScore;
+}
+
+char calcLetterGrade(double finalScore) {
+    if (finalScore >= 3.3 && finalScore <= 4.0) {
+        return 'A';
+    } else if (finalScore >= 2.8 && finalScore < 3.3) {
+        return 'B';
+    } else if (finalScore >= 2.0 && finalScore < 2.8) {
+        return 'C';
+    } else if (finalScore >= 1.2 && finalScore < 2.0) {
+        return 'D';
+    } else {
+        return 'F';
+    }
 }
 
 // Function implementations (if any)
@@ -135,14 +181,17 @@ Program Description: It will calculate your grade for you.
 Design:
 A. INPUT
 Define the input variables including name data type. 
+    int numAssigns, double assignment scores, double midterm, double finalExam
 
 B. OUTPUT
-Define the output variables including data types. 
+Define the output variables including data types.
+    double finalScore, char letter 
 
 C. CALCULATIONS
 Describe calculations used by algorithms in step D.  
 List all formulas. 
 If there are no calculations needed, state there are no calculations.
+    Assignment average, Final numeric score, Letter grade based on finalScore
 
 D. LOGIC and ALGORITHMS
 Design the logic of your program using pseudocode or flowcharts. 

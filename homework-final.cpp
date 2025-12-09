@@ -142,6 +142,105 @@ int calcTotal() {
     return total;
 }
 
+/*
+// DESIGN SECTION (Pseudocode)
+
+// Module: Main Program
+// Purpose: Orchestrate the flow of the miles tracker program
+START
+    DECLARE integer goal
+    DECLARE integer totalMiles
+    DECLARE integer difference
+
+    CALL WelcomeMessage()
+
+    // Pass goal by reference to modify the variable in main
+    CALL GetInput(goal)
+
+    IF goal <= 0 THEN
+        PRINT "No miles were tracked this week."
+    ELSE
+        SET totalMiles = CALL CalcTotal()
+        
+        PRINT "You rode " + totalMiles + " miles this week."
+
+        IF totalMiles == goal THEN
+            PRINT "Good job! You met your goal!"
+        ELSE IF totalMiles > goal THEN
+            SET difference = totalMiles - goal
+            PRINT "Great job! You exceeded your goal by " + difference + " miles!"
+        ELSE
+            SET difference = goal - totalMiles
+            PRINT "Uh oh! You missed your goal by " + difference + " miles!"
+        END IF
+    END IF
+
+    CALL GoodbyeMessage()
+END
+
+// Module: WelcomeMessage
+// Purpose: Display start banner
+FUNCTION WelcomeMessage()
+    PRINT "Welcome to my Miles Tracker program."
+END FUNCTION
+
+// Module: GoodbyeMessage
+// Purpose: Display end banner
+FUNCTION GoodbyeMessage()
+    PRINT "Keep riding!"
+END FUNCTION
+
+// Module: GetInput
+// Purpose: Ask user for their weekly goal
+// Parameters: Integer goal (Reference)
+FUNCTION GetInput(Reference Integer goal)
+    PRINT "How many miles do you want to ride this week? "
+    INPUT goal
+END FUNCTION
+
+// Module: CalcTotal
+// Purpose: Loop through days, validate input, and sum miles
+// Returns: Integer (Total Miles)
+FUNCTION CalcTotal() RETURNS Integer
+    DECLARE integer total = 0
+    DECLARE integer dailyMiles
+    DECLARE integer day
+
+    // Loop from 0 to 6 for 7 days
+    FOR day = 0 to 6 DO
+        DECLARE boolean valid = FALSE
+        
+        // Loop until valid input is received for the specific day
+        WHILE valid is FALSE DO
+            PRINT "How many miles did you ride on "
+            
+            // Switch case to print day name without using strings
+            SWITCH day DO
+                CASE 0: PRINT "Sunday"
+                CASE 1: PRINT "Monday"
+                CASE 2: PRINT "Tuesday"
+                CASE 3: PRINT "Wednesday"
+                CASE 4: PRINT "Thursday"
+                CASE 5: PRINT "Friday"
+                CASE 6: PRINT "Saturday"
+            END SWITCH
+            
+            PRINT "? "
+            INPUT dailyMiles
+
+            IF dailyMiles < 0 THEN
+                PRINT "Miles must be 0 or greater!"
+            ELSE
+                SET total = total + dailyMiles
+                SET valid = TRUE
+            END IF
+        END WHILE
+    END FOR
+
+    RETURN total
+END FUNCTION
+*/
+
 // ------------- DESIGN -------------
 /* 
 Program Name: miles calculator
